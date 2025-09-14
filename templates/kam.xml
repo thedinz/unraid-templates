@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Container>
+  <Name>KAM</Name>
+  <Repository>ghcr.io/thedinz/kam:latest</Repository>
+  <Registry>https://ghcr.io/</Registry>
+  <Network>bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/   <!-- TODO: link your support thread --></Support>
+  <Project>https://github.com/thedinz/kam</Project>
+  <Overview>KAM moves uploaded posters into Kometa asset folders and serves a small web UI.</Overview>
+  <Category>MediaApp:Other</Category>
+  <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/icons/kam.png</Icon> <!-- TODO -->
+  <WebUI>http://[IP]:[PORT:7171]/</WebUI>
+  <TemplateURL/>
+  <Config Name="Web UI Port" Target="7171" Default="7171" Mode="tcp" Description="Container Port: 7171" Type="Port" Display="always" Required="true" Mask="false">7171</Config>
+
+  <!-- Common environment -->
+  <Config Name="Time Zone" Target="TZ" Default="America/New_York" Mode="" Description="TZ database name" Type="Variable" Display="advanced" Required="true" Mask="false">America/New_York</Config>
+  <Config Name="User ID (PUID)" Target="PUID" Default="99" Mode="" Description="User ID for file ownership" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+  <Config Name="Group ID (PGID)" Target="PGID" Default="100" Mode="" Description="Group ID for file ownership" Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
+
+  <!-- App-specific variables -->
+  <Config Name="Kometa Assets (container path)" Target="KOMETA_ASSETS" Default="/assets" Mode="" Description="Container path where Kometa assets are accessible" Type="Variable" Display="always" Required="true" Mask="false">/assets</Config>
+
+  <!-- Paths -->
+  <Config Name="AppData" Target="/config" Default="/mnt/user/appdata/kam" Mode="rw" Description="Persistent app data/config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/kam</Config>
+  <Config Name="Kometa Assets (host path)" Target="/assets" Default="/mnt/user/appdata/kometa/Assets" Mode="rw" Description="Point this at your Kometa Assets directory" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/kometa/Assets</Config>
+</Container>
