@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>KAM — Kometa Asset Manager</Name>
+  <Name>KAM - Kometa Asset Manager</Name>
   <Repository>ghcr.io/thedinz/kam:latest</Repository>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
 
-  <!-- Optional metadata -->
   <Support>https://forums.unraid.net/</Support>
   <Project>https://github.com/thedinz/kam</Project>
   <Overview>KAM moves uploaded posters/backgrounds into Kometa asset folders and serves a simple web UI.</Overview>
@@ -16,24 +15,18 @@
   <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/logo.png</Icon>
   <ExtraParams>--restart unless-stopped</ExtraParams>
 
-  <Config Name="Web Port" Target="8000" Default="7171" Mode="tcp" Description="Container 8000 → Host port for the web UI" Type="Port" Display="advanced-hide" Required="true" Mask="false">7171</Config>
+  <Config Name="Web Port" Target="8000" Default="7171" Mode="tcp" Description="Container 8000 -> Host port for the web UI" Type="Port" Display="advanced-hide" Required="true" Mask="false">7171</Config>
 
-  <!-- Single assets root bind; point this at your Kometa assets root on the host -->
   <Config Name="Assets Root" Target="/assets" Default="/mnt/user/kometa/assets" Mode="rw" Description="Root folder that contains Movies/TV/Collections subfolders" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/kometa/assets</Config>
 
-  <!-- Environment variables surfaced in the UI -->
   <Config Name="Plex URL" Target="PLEX_URL" Default="" Description="Your Plex base URL (e.g. http://192.168.1.215:32400)" Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Plex Token" Target="PLEX_TOKEN" Default="" Description="Your Plex API token" Type="Variable" Display="always" Required="true" Mask="true"></Config>
 
-  <!-- Map library names to subpaths under /assets -->
   <Config Name="Libraries Map" Target="LIBRARIES" Default="Movies:/assets/Movies,TV Shows:/assets/TV Shows" Description="Comma-separated: LibraryName:/assets/Subfolder" Type="Variable" Display="always" Required="true" Mask="false"></Config>
 
-  <!-- Where Kometa Collections artwork lives (under /assets by default) -->
   <Config Name="Collections Root" Target="COLLECTIONS_ROOT" Default="/assets/Collections" Description="Path inside the container for collection art" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
 
-  <!-- Optional behavior toggles -->
   <Config Name="Overwrite Collection Poster" Target="OVERWRITE_COLLECTION_POSTER" Default="false" Description="If true, replaces existing collection poster.*" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
 
-  <!-- Quality-of-life -->
   <Config Name="Timezone" Target="TZ" Default="America/New_York" Description="Container timezone" Type="Variable" Display="advanced-hide" Required="false" Mask="false"></Config>
 </Container>
