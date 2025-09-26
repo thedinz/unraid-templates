@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>KAM (Kometa Asset Manager)</Name>
+  <Name>Kometa Asset Manager</Name>
   <Repository>ghcr.io/thedinz/kam:latest</Repository>
   <Network>bridge</Network>
   <MyIP></MyIP>
