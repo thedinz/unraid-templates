@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>KAM - Kometa Asset Manager</Name>
+  <Name>KAM (Kometa Asset Manager)</Name>
   <Repository>ghcr.io/thedinz/kam:latest</Repository>
   <Network>bridge</Network>
   <MyIP/>
@@ -11,7 +11,7 @@
   <Project>https://github.com/thedinz/kam</Project>
   <Overview>KAM moves uploaded posters/backgrounds into Kometa asset folders and serves a simple web UI.</Overview>
   <Category>MediaApp:Other</Category>
-  <WebUI>http://[IP]:[PORT:7171]/</WebUI>
+  <WebUI>http://[IP]:[PORT:8000]/</WebUI>
   <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/logo.png</Icon>
   <ExtraParams>--restart unless-stopped</ExtraParams>
 
