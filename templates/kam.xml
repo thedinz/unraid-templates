@@ -15,7 +15,6 @@
   <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/logo.png</Icon>
   <ExtraParams>--restart unless-stopped</ExtraParams>
 
-  <!-- Keep Target=8000 (container). Host port is user-editable (default 7171). -->
   <Config Name="Web Port" Target="8000" Default="7171" Mode="tcp"
           Description="Container 8000 -> Host port for the web UI"
           Type="Port" Display="always" Required="true" Mask="false">7171</Config>
