@@ -7,7 +7,7 @@
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
 
-  <Support>https://forums.unraid.net/</Support>
+  <Support>https://forums.unraid.net/topic/193880-kometa-asset-manager/</Support>
   <Project>https://github.com/thedinz/kam</Project>
   <Overview>KAM moves uploaded posters/backgrounds into Kometa asset folders and serves a simple web UI.</Overview>
   <Category>MediaApp:Other</Category>
