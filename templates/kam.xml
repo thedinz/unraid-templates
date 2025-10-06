@@ -9,7 +9,7 @@
 
   <Support>https://forums.unraid.net/topic/193880-kometa-asset-manager/</Support>
   <Project>https://github.com/thedinz/kam</Project>
-  <Overview>KAM moves uploaded posters/backgrounds into Kometa asset folders and serves a simple web UI.</Overview>
+  <Overview>KAM moves uploaded posters/backgrounds into Kometa asset folders and provides an in-app settings UI.</Overview>
   <Category>MediaApp:Other</Category>
   <WebUI>http://[IP]:[PORT:8000]/</WebUI>
   <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/logo.png</Icon>
@@ -23,26 +23,9 @@
           Description="Root folder that contains Movies/TV/Collections subfolders"
           Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/kometa/assets</Config>
 
-  <Config Name="Plex URL" Target="PLEX_URL" Default=""
-          Description="Your Plex base URL (e.g. http://192.168.1.215:32400)"
-          Type="Variable" Display="always" Required="true" Mask="false"></Config>
-
-  <Config Name="Plex Token" Target="PLEX_TOKEN" Default=""
-          Description="Your Plex API token"
-          Type="Variable" Display="always" Required="true" Mask="true"></Config>
-
-  <Config Name="Libraries Map" Target="LIBRARIES"
-          Default="Movies:/assets/Movies,TV Shows:/assets/TV Shows"
-          Description="Comma-separated: LibraryName:/assets/Subfolder"
-          Type="Variable" Display="always" Required="true" Mask="false"></Config>
-
-  <Config Name="Collections Root" Target="COLLECTIONS_ROOT" Default="/assets/Collections"
-          Description="Path inside the container for collection art"
-          Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
-
-  <Config Name="Overwrite Collection Poster" Target="OVERWRITE_COLLECTION_POSTER" Default="false"
-          Description="If true, replaces existing collection poster.*"
-          Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Config Folder" Target="/config" Default="/mnt/user/appdata/kam" Mode="rw"
+          Description="Location to persist the KAM database and settings"
+          Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/kam</Config>
 
   <Config Name="Timezone" Target="TZ" Default="America/New_York"
           Description="Container timezone"
