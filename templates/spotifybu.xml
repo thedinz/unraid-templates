@@ -10,8 +10,8 @@
 
   <Support>https://github.com/thedinz/SpotifyBU/issues</Support>
   <Project>https://github.com/thedinz/SpotifyBU</Project>
-  <Overview>SpotifyBU backs up your own Spotify playlist, song, and album metadata and prepares Navidrome-ready folder plans.</Overview>
-  <Description>SpotifyBU is a Docker-first web UI for connecting to a user's Spotify account, reading playlists, resolving song and album metadata, exporting JSON/CSV backups, checking a Navidrome library mount, and planning stable folders such as Artist - Album. This release does not rip audio from Spotify, YouTube, or other services.</Description>
+  <Overview>SpotifyBU backs up Spotify playlists, songs, and albums into a local Navidrome-ready music library.</Overview>
+  <Description>SpotifyBU connects to Spotify for playlist, song, album, and metadata reads; checks the mounted Navidrome music folder; stages reviewed user-confirmed provider downloads from YouTube Music, YouTube, Piped, and JioSaavn; tags files; and moves completed audio into stable Artist - Album folders. Provider downloads do not use provider account connections; users paste reviewed source URLs and confirm they are authorized to download them. Bulk jobs can trigger throttling, captchas, or provider blocks.</Description>
   <Category>MediaApp:Music</Category>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
   <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/spotifybu.png</Icon>
@@ -28,27 +28,35 @@
           Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/spotifybu</Config>
 
   <Config Name="Navidrome Music Library" Target="/music" Default="/mnt/user/music" Mode="rw"
-          Description="Host music folder that Navidrome scans"
+          Description="Host music folder that Navidrome scans. This must be the real music folder, not Navidrome appdata/config. SpotifyBU needs read/write access and stores its index under /music/.spotifybu."
           Type="Path" Display="always" Required="true" Mask="false">/mnt/user/music</Config>
 
   <Config Name="Spotify Client ID" Target="SPOTIFY_CLIENT_ID" Default=""
-          Description="Spotify Developer Dashboard app Client ID"
+          Description="Spotify Developer Dashboard app Client ID. SpotifyBU uses PKCE and does not need or ask for the Spotify Client Secret."
           Type="Variable" Display="always" Required="true" Mask="false"></Config>
 
   <Config Name="SpotifyBU App Secret" Target="SPOTIFYBU_APP_SECRET" Default=""
-          Description="Long random value used to sign SpotifyBU login sessions"
+          Description="Long random value used to sign SpotifyBU's own login sessions. This is not your Spotify app Client Secret."
           Type="Variable" Display="always" Required="true" Mask="true"></Config>
 
   <Config Name="Navidrome URL" Target="NAVIDROME_URL" Default="http://host.docker.internal:4533"
-          Description="Navidrome URL as seen by the SpotifyBU container"
+          Description="Navidrome URL as seen by the SpotifyBU container. Used with optional Navidrome credentials to ping Navidrome and request server-side scans."
           Type="Variable" Display="always" Required="false" Mask="false">http://host.docker.internal:4533</Config>
 
+  <Config Name="Navidrome Username" Target="NAVIDROME_USERNAME" Default=""
+          Description="Optional Navidrome username. Required only if SpotifyBU should ping Navidrome and request a Navidrome-side library scan after indexing or staging files."
+          Type="Variable" Display="always" Required="false" Mask="false"></Config>
+
+  <Config Name="Navidrome Password" Target="NAVIDROME_PASSWORD" Default=""
+          Description="Optional Navidrome password for the username above. Required only for Navidrome API scan requests; the mounted music folder scan does not use this."
+          Type="Variable" Display="always" Required="false" Mask="true"></Config>
+
   <Config Name="Public App URL / Reverse Proxy URL" Target="NEXT_PUBLIC_APP_URL" Default=""
-          Description="Public SpotifyBU URL. For reverse proxy installs, set this to the external HTTPS URL used in your Spotify redirect URI."
-          Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+          Description="Exact SpotifyBU base URL used for Spotify OAuth redirects. Spotify requires HTTPS except for loopback IPs such as http://127.0.0.1:3000. Normal Unraid/LAN installs should use an HTTPS reverse proxy, internal HTTPS hostname, VPN, or tunnel URL, then add NEXT_PUBLIC_APP_URL/api/auth/callback to the Spotify app."
+          Type="Variable" Display="always" Required="false" Mask="false"></Config>
 
   <Config Name="Secure Cookies" Target="SPOTIFYBU_SECURE_COOKIES" Default="false"
-          Description="Leave false for direct HTTP. Set true only when SpotifyBU is accessed over HTTPS, usually through a reverse proxy."
+          Description="Set true when SpotifyBU is accessed over HTTPS. Leave false only for direct HTTP/loopback testing."
           Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
 
   <Config Name="Branch Label" Target="GIT_BRANCH" Default="main"
