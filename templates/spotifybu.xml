@@ -43,12 +43,12 @@
           Description="Navidrome URL as seen by the SpotifyBU container"
           Type="Variable" Display="always" Required="false" Mask="false">http://host.docker.internal:4533</Config>
 
-  <Config Name="Public App URL" Target="NEXT_PUBLIC_APP_URL" Default=""
-          Description="Optional public SpotifyBU URL. Leave blank to infer from requests, or set this to your reverse proxy URL."
+  <Config Name="Public App URL / Reverse Proxy URL" Target="NEXT_PUBLIC_APP_URL" Default=""
+          Description="Public SpotifyBU URL. For reverse proxy installs, set this to the external HTTPS URL used in your Spotify redirect URI."
           Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
 
   <Config Name="Secure Cookies" Target="SPOTIFYBU_SECURE_COOKIES" Default="false"
-          Description="Set true only when SpotifyBU is accessed over HTTPS, usually through a reverse proxy"
+          Description="Leave false for direct HTTP. Set true only when SpotifyBU is accessed over HTTPS, usually through a reverse proxy."
           Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
 
   <Config Name="Branch Label" Target="GIT_BRANCH" Default="main"
