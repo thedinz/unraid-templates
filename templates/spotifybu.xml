@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>SpotifyBU</Name>
+  <Repository>ghcr.io/thedinz/spotifybu:latest</Repository>
+  <Registry>https://github.com/thedinz/SpotifyBU/pkgs/container/spotifybu</Registry>
+  <Network>bridge</Network>
+  <MyIP></MyIP>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+
+  <Support>https://github.com/thedinz/SpotifyBU/issues</Support>
+  <Project>https://github.com/thedinz/SpotifyBU</Project>
+  <Overview>SpotifyBU backs up your own Spotify playlist, song, and album metadata and prepares Navidrome-ready folder plans.</Overview>
+  <Description>SpotifyBU is a Docker-first web UI for connecting to a user's Spotify account, reading playlists, resolving song and album metadata, exporting JSON/CSV backups, checking a Navidrome library mount, and planning stable folders such as Artist - Album. This release does not rip audio from Spotify, YouTube, or other services.</Description>
+  <Category>MediaApp:Music</Category>
+  <WebUI>http://[IP]:[PORT:3000]/</WebUI>
+  <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/spotifybu.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/thedinz/unraid-templates/main/templates/spotifybu.xml</TemplateURL>
+  <ReadMe>https://raw.githubusercontent.com/thedinz/SpotifyBU/main/README.md</ReadMe>
+  <ExtraParams>--add-host=host.docker.internal:host-gateway --restart unless-stopped</ExtraParams>
+
+  <Config Name="Web Port" Target="3000" Default="3000" Mode="tcp"
+          Description="Container 3000 - Host port for the SpotifyBU web UI"
+          Type="Port" Display="always" Required="true" Mask="false">3000</Config>
+
+  <Config Name="Config Folder" Target="/config" Default="/mnt/user/appdata/spotifybu" Mode="rw"
+          Description="Stores SpotifyBU settings and changed app login credentials"
+          Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/spotifybu</Config>
+
+  <Config Name="Navidrome Music Library" Target="/music" Default="/mnt/user/music" Mode="rw"
+          Description="Host music folder that Navidrome scans"
+          Type="Path" Display="always" Required="true" Mask="false">/mnt/user/music</Config>
+
+  <Config Name="Spotify Client ID" Target="SPOTIFY_CLIENT_ID" Default=""
+          Description="Spotify Developer Dashboard app Client ID"
+          Type="Variable" Display="always" Required="true" Mask="false"></Config>
+
+  <Config Name="SpotifyBU App Secret" Target="SPOTIFYBU_APP_SECRET" Default=""
+          Description="Long random value used to sign SpotifyBU login sessions"
+          Type="Variable" Display="always" Required="true" Mask="true"></Config>
+
+  <Config Name="Navidrome URL" Target="NAVIDROME_URL" Default="http://host.docker.internal:4533"
+          Description="Navidrome URL as seen by the SpotifyBU container"
+          Type="Variable" Display="always" Required="false" Mask="false">http://host.docker.internal:4533</Config>
+
+  <Config Name="Public App URL" Target="NEXT_PUBLIC_APP_URL" Default=""
+          Description="Optional public SpotifyBU URL. Leave blank to infer from requests, or set this to your reverse proxy URL."
+          Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+
+  <Config Name="Secure Cookies" Target="SPOTIFYBU_SECURE_COOKIES" Default="false"
+          Description="Set true only when SpotifyBU is accessed over HTTPS, usually through a reverse proxy"
+          Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+
+  <Config Name="Branch Label" Target="GIT_BRANCH" Default="main"
+          Description="Branch label shown in the SpotifyBU footer"
+          Type="Variable" Display="advanced" Required="false" Mask="false">main</Config>
+
+  <Config Name="Timezone" Target="TZ" Default="America/New_York"
+          Description="Container timezone"
+          Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+</Container>
