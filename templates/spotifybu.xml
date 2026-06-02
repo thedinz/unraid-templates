@@ -11,7 +11,7 @@
   <Support>https://github.com/thedinz/SpotifyBU/issues</Support>
   <Project>https://github.com/thedinz/SpotifyBU</Project>
   <Overview>SpotifyBU backs up Spotify playlists, songs, and albums into a local Navidrome-ready music library.</Overview>
-  <Description>SpotifyBU connects to Spotify for playlist, song, album, and metadata reads; checks the mounted Navidrome music folder; stages reviewed user-confirmed provider downloads from YouTube Music, YouTube, Piped, and JioSaavn; tags files; and moves completed audio into stable Artist - Album folders. Provider downloads do not use provider account connections; users paste reviewed source URLs and confirm they are authorized to download them. Bulk jobs can trigger throttling, captchas, or provider blocks.</Description>
+  <Description>SpotifyBU connects to Spotify for playlist, song, album, and metadata reads; checks the mounted Navidrome music folder; automatically searches YouTube first and JioSaavn second for missing tracks; stages user-confirmed provider downloads; tags files; and moves completed audio into stable Artist - Album folders. Provider downloads do not use provider account connections; users review the selected candidate and confirm they are authorized to download it. Bulk jobs run in throttled chunks and can trigger throttling, captchas, or provider blocks.</Description>
   <Category>MediaApp:Music</Category>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
   <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/spotifybu.png</Icon>
