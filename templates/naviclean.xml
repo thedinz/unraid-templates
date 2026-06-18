@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>NaviClean</Name>
+  <Repository>ghcr.io/thedinz/naviclean:dev</Repository>
+  <Registry>https://github.com/thedinz/NaviClean/pkgs/container/naviclean</Registry>
+  <Network>bridge</Network>
+  <MyIP></MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+
+  <Support>https://github.com/thedinz/NaviClean/issues</Support>
+  <Project>https://github.com/thedinz/NaviClean</Project>
+  <Overview>NaviClean scans a mounted Navidrome music library, previews Lidarr-style artist/album/track organization, and detects duplicate tracks across filenames and extensions.</Overview>
+  <Description>NaviClean provides a web UI for cleaning Navidrome libraries before or alongside Lidarr import. It stores settings under /data, reads and writes the mounted /music library, defaults to admin/admin authentication, can disable built-in auth for reverse-proxy systems such as authentik, tests Navidrome via the Subsonic-compatible API, previews all planned moves before applying them, and moves duplicate removals into a recycle bin folder by default.</Description>
+  <Category>MediaApp:Music</Category>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/naviclean.svg</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/thedinz/unraid-templates/main/templates/naviclean.xml</TemplateURL>
+  <ReadMe>https://raw.githubusercontent.com/thedinz/NaviClean/main/README.md</ReadMe>
+  <ExtraParams>--restart unless-stopped</ExtraParams>
+
+  <Config Name="Web Port" Target="8080" Default="8080" Mode="tcp"
+          Description="Container 8080 - Host port for the NaviClean web UI"
+          Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+
+  <Config Name="Config Folder" Target="/data" Default="/mnt/user/appdata/naviclean" Mode="rw"
+          Description="Stores NaviClean settings, auth configuration, and the latest scan catalog"
+          Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/naviclean</Config>
+
+  <Config Name="Navidrome Music Library" Target="/music" Default="/mnt/user/music" Mode="rw"
+          Description="Host music folder that Navidrome scans. NaviClean needs read/write access to preview organization, move files, and place duplicate removals in /music/.naviclean-trash by default."
+          Type="Path" Display="always" Required="true" Mask="false">/mnt/user/music</Config>
+
+  <Config Name="Secure Cookies" Target="NAVICLEAN_SECURE_COOKIES" Default="false"
+          Description="Set true when NaviClean is accessed over HTTPS. Leave false for direct HTTP/LAN testing."
+          Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+
+  <Config Name="Timezone" Target="TZ" Default="America/New_York"
+          Description="Container timezone"
+          Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+</Container>
+
