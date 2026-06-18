@@ -31,6 +31,14 @@
           Description="Host music folder that Navidrome scans. NaviClean needs read/write access to preview organization, move files, and place duplicate removals in /music/.naviclean-trash by default."
           Type="Path" Display="always" Required="true" Mask="false">/mnt/user/music</Config>
 
+  <Config Name="PUID" Target="PUID" Default="99"
+          Description="Unraid user ID used by NaviClean for /data and /music access. Keep 99 for the default nobody user."
+          Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+
+  <Config Name="PGID" Target="PGID" Default="100"
+          Description="Unraid group ID used by NaviClean for /data and /music access. Keep 100 for the default users group."
+          Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
+
   <Config Name="Secure Cookies" Target="NAVICLEAN_SECURE_COOKIES" Default="false"
           Description="Set true when NaviClean is accessed over HTTPS. Leave false for direct HTTP/LAN testing."
           Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
