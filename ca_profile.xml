@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<CommunityApplications>
+  <Profile>Unraid Community Applications templates for apps maintained by thedinz, including Kometa Asset Manager, SpotifyBU, and NaviClean.</Profile>
+  <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/naviclean.svg</Icon>
+  <WebPage>https://github.com/thedinz/unraid-templates</WebPage>
+</CommunityApplications>

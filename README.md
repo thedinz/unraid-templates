@@ -6,3 +6,4 @@ Unraid Community Applications templates for apps maintained by `thedinz`.
 
 - `templates/kam.xml` - Kometa Asset Manager
 - `templates/spotifybu.xml` - SpotifyBU
+- `templates/naviclean.xml` - NaviClean
