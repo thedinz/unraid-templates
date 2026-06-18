@@ -14,7 +14,7 @@
   <Description>NaviClean provides a web UI for cleaning Navidrome libraries before or alongside Lidarr import. It stores settings under /data, reads and writes the mounted /music library, defaults to admin/admin authentication, can disable built-in auth for reverse-proxy systems such as authentik, tests Navidrome via the Subsonic-compatible API, previews all planned moves before applying them, and moves duplicate removals into a recycle bin folder by default.</Description>
   <Category>MediaApp:Music</Category>
   <WebUI>http://[IP]:[PORT:8080]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/naviclean.svg</Icon>
+  <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/naviclean.png</Icon>
   <TemplateURL>https://raw.githubusercontent.com/thedinz/unraid-templates/main/templates/naviclean.xml</TemplateURL>
   <ReadMe>https://raw.githubusercontent.com/thedinz/NaviClean/main/README.md</ReadMe>
   <ExtraParams>--restart unless-stopped</ExtraParams>
