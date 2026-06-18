@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>NaviClean</Name>
-  <Repository>ghcr.io/thedinz/naviclean:dev</Repository>
+  <Repository>ghcr.io/thedinz/naviclean:latest</Repository>
   <Registry>https://github.com/thedinz/NaviClean/pkgs/container/naviclean</Registry>
   <Network>bridge</Network>
   <MyIP></MyIP>
@@ -39,4 +39,3 @@
           Description="Container timezone"
           Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
 </Container>
-
