@@ -10,8 +10,8 @@
 
   <Support>https://github.com/thedinz/SpotifyBU/issues</Support>
   <Project>https://github.com/thedinz/SpotifyBU</Project>
-  <Overview>SpotifyBU backs up Spotify playlists, songs, and albums into a local Navidrome-ready music library.</Overview>
-  <Description>SpotifyBU connects to Spotify for playlist, song, album, and metadata reads; checks the mounted Navidrome music folder; automatically searches YouTube first and JioSaavn second for missing tracks; stages user-confirmed provider downloads; tags files; and moves completed audio into stable Artist - Album folders. Provider downloads do not use provider account connections; users review the selected candidate and confirm they are authorized to download it. Bulk jobs run in throttled chunks and can trigger throttling, captchas, or provider blocks.</Description>
+  <Overview>SpotifyBU backs up Spotify playlists, songs, and albums into a local Navidrome-ready music library. Set PUID/PGID to match NaviClean/Navidrome when sharing the same music library.</Overview>
+  <Description>SpotifyBU connects to Spotify for playlist, song, album, and metadata reads; checks the mounted Navidrome music folder; automatically searches YouTube first and JioSaavn second for missing tracks; stages user-confirmed provider downloads; tags files; and moves completed audio into stable Artist - Album folders. Provider downloads do not use provider account connections; users review the selected candidate and confirm they are authorized to download it. Bulk jobs run in throttled chunks and can trigger throttling, captchas, or provider blocks. When SpotifyBU shares a music library with NaviClean or Navidrome, set matching PUID/PGID values so all containers can move and rename the same files.</Description>
   <Category>MediaApp:Music</Category>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
   <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/spotifybu.png</Icon>
@@ -30,6 +30,14 @@
   <Config Name="Navidrome Music Library" Target="/music" Default="/mnt/user/music" Mode="rw"
           Description="Host music folder that Navidrome scans. This must be the real music folder, not Navidrome appdata/config. SpotifyBU needs read/write access and stores its index under /music/.spotifybu."
           Type="Path" Display="always" Required="true" Mask="false">/mnt/user/music</Config>
+
+  <Config Name="PUID" Target="PUID" Default="99"
+          Description="Unraid user ID used by SpotifyBU for /config and /music access. Match NaviClean/Navidrome on shared libraries; 99 is Unraid's default nobody user."
+          Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+
+  <Config Name="PGID" Target="PGID" Default="100"
+          Description="Unraid group ID used by SpotifyBU for /config and /music access. Match NaviClean/Navidrome on shared libraries; 100 is Unraid's default users group."
+          Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
 
   <Config Name="Spotify Client ID" Target="SPOTIFY_CLIENT_ID" Default=""
           Description="Spotify Developer Dashboard app Client ID. SpotifyBU uses PKCE and does not need or ask for the Spotify Client Secret."
@@ -57,6 +65,10 @@
 
   <Config Name="Secure Cookies" Target="SPOTIFYBU_SECURE_COOKIES" Default="false"
           Description="Set true when SpotifyBU is accessed over HTTPS. Leave false only for direct HTTP/loopback testing."
+          Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+
+  <Config Name="Chown Music Library" Target="SPOTIFYBU_CHOWN_MUSIC" Default="false"
+          Description="Advanced repair option. Leave false unless you intentionally want SpotifyBU startup to recursively chown the entire mounted music library to PUID:PGID."
           Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
 
   <Config Name="Branch Label" Target="GIT_BRANCH" Default="main"
