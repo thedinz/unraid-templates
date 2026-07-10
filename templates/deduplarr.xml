@@ -13,15 +13,15 @@
   <Overview>Deduplarr is a Plex duplicate cleanup companion with an arr-style web UI for reviewing duplicate movie and episode versions before choosing what to keep.</Overview>
   <Description>Deduplarr connects to Plex through the Plex API, scans selected movie, show, and video libraries for duplicate media versions, displays file paths and stream details, scores each version, and supports manual or automatic keeper selection. Plex URL and token are configured in the app Settings page and stored under /config. The default login is admin/admin; change it after first sign-in. Delete actions ask Plex to delete the selected media part, so Plex media deletion and filesystem write access must be enabled in Plex.</Description>
   <Category>MediaApp:Video</Category>
-  <WebUI>http://[IP]:[PORT:7878]/</WebUI>
+  <WebUI>http://[IP]:[PORT:7889]/</WebUI>
   <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/deduplarr.png</Icon>
   <TemplateURL>https://raw.githubusercontent.com/thedinz/unraid-templates/main/templates/deduplarr.xml</TemplateURL>
   <ReadMe>https://raw.githubusercontent.com/thedinz/Deduplarr/main/README.md</ReadMe>
   <ExtraParams>--restart unless-stopped</ExtraParams>
 
-  <Config Name="Web Port" Target="7878" Default="7878" Mode="tcp"
-          Description="Container 7878 - Host port for the Deduplarr web UI"
-          Type="Port" Display="always" Required="true" Mask="false">7878</Config>
+  <Config Name="Web Port" Target="7889" Default="7889" Mode="tcp"
+          Description="Container 7889 - Host port for the Deduplarr web UI"
+          Type="Port" Display="always" Required="true" Mask="false">7889</Config>
 
   <Config Name="Config Folder" Target="/config" Default="/mnt/user/appdata/deduplarr" Mode="rw"
           Description="Stores Deduplarr settings, saved Plex connection details, auth configuration, and keep preferences"
