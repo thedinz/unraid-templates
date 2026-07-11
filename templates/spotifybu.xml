@@ -2,21 +2,21 @@
 <Container version="2">
   <Name>TrackKeep</Name>
   <Repository>ghcr.io/thedinz/spotifybu:latest</Repository>
-  <Registry>https://github.com/thedinz/SpotifyBU/pkgs/container/spotifybu</Registry>
+  <Registry>https://github.com/thedinz/TrackKeep/pkgs/container/spotifybu</Registry>
   <Network>bridge</Network>
   <MyIP></MyIP>
   <Shell>bash</Shell>
   <Privileged>false</Privileged>
 
-  <Support>https://github.com/thedinz/SpotifyBU/issues</Support>
-  <Project>https://github.com/thedinz/SpotifyBU</Project>
+  <Support>https://github.com/thedinz/TrackKeep/issues</Support>
+  <Project>https://github.com/thedinz/TrackKeep</Project>
   <Overview>TrackKeep uses Spotify metadata to build and maintain a Navidrome-ready local music backup, with optional Navidrome or Plex playlist sync. Set PUID/PGID to match NaviClean/Navidrome when sharing the same music library.</Overview>
   <Description>TrackKeep reads Spotify playlists, albums, tracks, and pasted track lists; saves SQLite metadata snapshots; checks the mounted Navidrome music folder to avoid duplicate backups; searches YouTube first and JioSaavn second for missing tracks; and stages only user-confirmed provider downloads into canonical Artist/Album folders with Spotify identity tags. Matched local tracks can be organized and synced back into Navidrome or Plex playlists, with skipped tracks reported in the UI. Provider downloads do not use provider account connections; users must confirm they are authorized to download the selected source, and bulk jobs run in throttled chunks that can still trigger provider throttling, captchas, or blocks. When TrackKeep shares a music library with NaviClean or Navidrome, set matching PUID/PGID values so all containers can move and rename the same files, and leave Chown Music Library disabled unless deliberately repairing ownership.</Description>
   <Category>MediaApp:Music</Category>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
   <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/spotifybu.png</Icon>
   <TemplateURL>https://raw.githubusercontent.com/thedinz/unraid-templates/main/templates/spotifybu.xml</TemplateURL>
-  <ReadMe>https://raw.githubusercontent.com/thedinz/SpotifyBU/main/README.md</ReadMe>
+  <ReadMe>https://raw.githubusercontent.com/thedinz/TrackKeep/main/README.md</ReadMe>
   <ExtraParams>--add-host=host.docker.internal:host-gateway --restart unless-stopped</ExtraParams>
 
   <Config Name="Web Port" Target="3000" Default="3000" Mode="tcp"
