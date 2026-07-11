@@ -10,7 +10,7 @@ template repository.
 
 - `templates/deduplarr.xml` - Deduplarr
 - `templates/kam.xml` - Kometa Asset Manager
-- `templates/spotifybu.xml` - SpotifyBU, a Spotify metadata backup and
+- `templates/spotifybu.xml` - TrackKeep, a Spotify metadata backup and
   Navidrome-ready library helper with optional Navidrome or Plex playlist sync.
   The template uses the stable `ghcr.io/thedinz/spotifybu:latest` image and
   includes Unraid-friendly `PUID`, `PGID`, reverse-proxy URL, Navidrome API, and

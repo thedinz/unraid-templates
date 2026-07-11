@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>SpotifyBU</Name>
+  <Name>TrackKeep</Name>
   <Repository>ghcr.io/thedinz/spotifybu:latest</Repository>
   <Registry>https://github.com/thedinz/SpotifyBU/pkgs/container/spotifybu</Registry>
   <Network>bridge</Network>
@@ -10,8 +10,8 @@
 
   <Support>https://github.com/thedinz/SpotifyBU/issues</Support>
   <Project>https://github.com/thedinz/SpotifyBU</Project>
-  <Overview>SpotifyBU uses Spotify metadata to build and maintain a Navidrome-ready local music backup, with optional Navidrome or Plex playlist sync. Set PUID/PGID to match NaviClean/Navidrome when sharing the same music library.</Overview>
-  <Description>SpotifyBU reads Spotify playlists, albums, tracks, and pasted track lists; saves SQLite metadata snapshots; checks the mounted Navidrome music folder to avoid duplicate backups; searches YouTube first and JioSaavn second for missing tracks; and stages only user-confirmed provider downloads into canonical Artist/Album folders with Spotify identity tags. Matched local tracks can be organized and synced back into Navidrome or Plex playlists, with skipped tracks reported in the UI. Provider downloads do not use provider account connections; users must confirm they are authorized to download the selected source, and bulk jobs run in throttled chunks that can still trigger provider throttling, captchas, or blocks. When SpotifyBU shares a music library with NaviClean or Navidrome, set matching PUID/PGID values so all containers can move and rename the same files, and leave Chown Music Library disabled unless deliberately repairing ownership.</Description>
+  <Overview>TrackKeep uses Spotify metadata to build and maintain a Navidrome-ready local music backup, with optional Navidrome or Plex playlist sync. Set PUID/PGID to match NaviClean/Navidrome when sharing the same music library.</Overview>
+  <Description>TrackKeep reads Spotify playlists, albums, tracks, and pasted track lists; saves SQLite metadata snapshots; checks the mounted Navidrome music folder to avoid duplicate backups; searches YouTube first and JioSaavn second for missing tracks; and stages only user-confirmed provider downloads into canonical Artist/Album folders with Spotify identity tags. Matched local tracks can be organized and synced back into Navidrome or Plex playlists, with skipped tracks reported in the UI. Provider downloads do not use provider account connections; users must confirm they are authorized to download the selected source, and bulk jobs run in throttled chunks that can still trigger provider throttling, captchas, or blocks. When TrackKeep shares a music library with NaviClean or Navidrome, set matching PUID/PGID values so all containers can move and rename the same files, and leave Chown Music Library disabled unless deliberately repairing ownership.</Description>
   <Category>MediaApp:Music</Category>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
   <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/spotifybu.png</Icon>
@@ -20,39 +20,39 @@
   <ExtraParams>--add-host=host.docker.internal:host-gateway --restart unless-stopped</ExtraParams>
 
   <Config Name="Web Port" Target="3000" Default="3000" Mode="tcp"
-          Description="Container 3000 - Host port for the SpotifyBU web UI"
+          Description="Container 3000 - Host port for the TrackKeep web UI"
           Type="Port" Display="always" Required="true" Mask="false">3000</Config>
 
   <Config Name="Config Folder" Target="/config" Default="/mnt/user/appdata/spotifybu" Mode="rw"
-          Description="Stores SpotifyBU settings and changed app login credentials"
+          Description="Stores TrackKeep settings and changed app login credentials"
           Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/spotifybu</Config>
 
   <Config Name="Navidrome Music Library" Target="/music" Default="/mnt/user/music" Mode="rw"
-          Description="Host music folder that Navidrome scans. This must be the real music folder, not Navidrome appdata/config. SpotifyBU needs read/write access and stores its index under /music/.spotifybu."
+          Description="Host music folder that Navidrome scans. This must be the real music folder, not Navidrome appdata/config. TrackKeep needs read/write access and stores its index under /music/.spotifybu."
           Type="Path" Display="always" Required="true" Mask="false">/mnt/user/music</Config>
 
   <Config Name="PUID" Target="PUID" Default="99"
-          Description="Unraid user ID used by SpotifyBU for /config and /music access. Match NaviClean/Navidrome on shared libraries; 99 is Unraid's default nobody user."
+          Description="Unraid user ID used by TrackKeep for /config and /music access. Match NaviClean/Navidrome on shared libraries; 99 is Unraid's default nobody user."
           Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
 
   <Config Name="PGID" Target="PGID" Default="100"
-          Description="Unraid group ID used by SpotifyBU for /config and /music access. Match NaviClean/Navidrome on shared libraries; 100 is Unraid's default users group."
+          Description="Unraid group ID used by TrackKeep for /config and /music access. Match NaviClean/Navidrome on shared libraries; 100 is Unraid's default users group."
           Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
 
   <Config Name="Spotify Client ID" Target="SPOTIFY_CLIENT_ID" Default=""
-          Description="Spotify Developer Dashboard app Client ID. SpotifyBU uses PKCE and does not need or ask for the Spotify Client Secret."
+          Description="Spotify Developer Dashboard app Client ID. TrackKeep uses PKCE and does not need or ask for the Spotify Client Secret."
           Type="Variable" Display="always" Required="true" Mask="false"></Config>
 
-  <Config Name="SpotifyBU App Secret" Target="SPOTIFYBU_APP_SECRET" Default=""
-          Description="Long random value used to sign SpotifyBU's own login sessions. This is not your Spotify app Client Secret."
+  <Config Name="TrackKeep App Secret" Target="SPOTIFYBU_APP_SECRET" Default=""
+          Description="Long random value used to sign TrackKeep's own login sessions. This is not your Spotify app Client Secret."
           Type="Variable" Display="always" Required="true" Mask="true"></Config>
 
   <Config Name="Navidrome URL" Target="NAVIDROME_URL" Default="http://host.docker.internal:4533"
-          Description="Navidrome URL as seen by the SpotifyBU container. Used with optional Navidrome credentials to ping Navidrome and request server-side scans."
+          Description="Navidrome URL as seen by the TrackKeep container. Used with optional Navidrome credentials to ping Navidrome and request server-side scans."
           Type="Variable" Display="always" Required="false" Mask="false">http://host.docker.internal:4533</Config>
 
   <Config Name="Navidrome Username" Target="NAVIDROME_USERNAME" Default=""
-          Description="Optional Navidrome username. Required only if SpotifyBU should ping Navidrome and request a Navidrome-side library scan after indexing or staging files."
+          Description="Optional Navidrome username. Required only if TrackKeep should ping Navidrome and request a Navidrome-side library scan after indexing or staging files."
           Type="Variable" Display="always" Required="false" Mask="false"></Config>
 
   <Config Name="Navidrome Password" Target="NAVIDROME_PASSWORD" Default=""
@@ -60,19 +60,19 @@
           Type="Variable" Display="always" Required="false" Mask="true"></Config>
 
   <Config Name="Public App URL / Reverse Proxy URL" Target="NEXT_PUBLIC_APP_URL" Default=""
-          Description="Exact SpotifyBU base URL used for Spotify OAuth redirects. Spotify requires HTTPS except for loopback IPs such as http://127.0.0.1:3000. Normal Unraid/LAN installs should use an HTTPS reverse proxy, internal HTTPS hostname, VPN, or tunnel URL, then add NEXT_PUBLIC_APP_URL/api/auth/callback to the Spotify app."
+          Description="Exact TrackKeep base URL used for Spotify OAuth redirects. Spotify requires HTTPS except for loopback IPs such as http://127.0.0.1:3000. Normal Unraid/LAN installs should use an HTTPS reverse proxy, internal HTTPS hostname, VPN, or tunnel URL, then add NEXT_PUBLIC_APP_URL/api/auth/callback to the Spotify app."
           Type="Variable" Display="always" Required="false" Mask="false"></Config>
 
   <Config Name="Secure Cookies" Target="SPOTIFYBU_SECURE_COOKIES" Default="false"
-          Description="Set true when SpotifyBU is accessed over HTTPS. Leave false only for direct HTTP/loopback testing."
+          Description="Set true when TrackKeep is accessed over HTTPS. Leave false only for direct HTTP/loopback testing."
           Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
 
   <Config Name="Chown Music Library" Target="SPOTIFYBU_CHOWN_MUSIC" Default="false"
-          Description="Advanced repair option. Leave false unless you intentionally want SpotifyBU startup to recursively chown the entire mounted music library to PUID:PGID."
+          Description="Advanced repair option. Leave false unless you intentionally want TrackKeep startup to recursively chown the entire mounted music library to PUID:PGID."
           Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
 
   <Config Name="Branch Label" Target="GIT_BRANCH" Default="main"
-          Description="Branch label shown in the SpotifyBU footer"
+          Description="Branch label shown in the TrackKeep footer"
           Type="Variable" Display="advanced" Required="false" Mask="false">main</Config>
 
   <Config Name="Timezone" Target="TZ" Default="America/New_York"
