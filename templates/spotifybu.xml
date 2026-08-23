@@ -47,6 +47,10 @@
           Description="Long random value used to sign TrackKeep's own login sessions. This is not your Spotify app Client Secret."
           Type="Variable" Display="always" Required="true" Mask="true"></Config>
 
+  <Config Name="Homepage API Key" Target="TRACKKEEP_HOMEPAGE_API_KEY" Default=""
+          Description="Optional long random value that authorizes Homepage's read-only TrackKeep playlist-backup stats widget. Use a separate value from the TrackKeep App Secret."
+          Type="Variable" Display="always" Required="false" Mask="true"></Config>
+
   <Config Name="Navidrome URL" Target="NAVIDROME_URL" Default="http://host.docker.internal:4533"
           Description="Navidrome URL as seen by the TrackKeep container. Used with optional Navidrome credentials to ping Navidrome and request server-side scans."
           Type="Variable" Display="always" Required="false" Mask="false">http://host.docker.internal:4533</Config>
