@@ -23,9 +23,33 @@
           Description="Root folder that contains Movies/TV/Collections subfolders"
           Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/kometa/assets</Config>
 
+  <Config Name="KAM Assets Root" Target="KAM_ASSETS_ROOT" Default="/assets"
+          Description="Container path KAM uses for the mounted assets root. Leave as /assets unless you change the Assets Root container path."
+          Type="Variable" Display="advanced" Required="true" Mask="false">/assets</Config>
+
+  <Config Name="Collections Root" Target="COLLECTIONS_ROOT" Default="/assets/Collections"
+          Description="Container path for shared Kometa collection artwork folders"
+          Type="Variable" Display="always" Required="true" Mask="false">/assets/Collections</Config>
+
   <Config Name="Config Folder" Target="/config" Default="/mnt/user/appdata/kam" Mode="rw"
           Description="Location to persist the KAM database and settings"
           Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/kam</Config>
+
+  <Config Name="Plex Verify SSL" Target="PLEX_VERIFY_SSL" Default="true"
+          Description="Set to false only when Plex uses a self-signed HTTPS certificate"
+          Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+
+  <Config Name="Auth Mode" Target="KAM_AUTH_MODE" Default=""
+          Description="Optional auth override. Leave blank to use the Settings UI, or set builtin/reverse_proxy."
+          Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+
+  <Config Name="Auth Password" Target="KAM_AUTH_PASSWORD" Default=""
+          Description="Optional built-in auth password override. Leave blank to use the Settings UI."
+          Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+
+  <Config Name="Secure Auth Cookie" Target="KAM_AUTH_COOKIE_SECURE" Default="auto"
+          Description="Use auto for normal behavior, true for forced HTTPS-only cookies, or false for direct HTTP."
+          Type="Variable" Display="advanced" Required="false" Mask="false">auto</Config>
 
   <Config Name="Timezone" Target="TZ" Default="America/New_York"
           Description="Container timezone"
