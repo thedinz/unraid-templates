@@ -2,7 +2,7 @@
 <Container version="2">
   <Name>TrackKeep</Name>
   <Repository>ghcr.io/thedinz/spotifybu:latest</Repository>
-  <Registry>https://github.com/thedinz/TrackKeep/pkgs/container/spotifybu</Registry>
+  <Registry>https://github.com/users/thedinz/packages/container/package/spotifybu</Registry>
   <Network>bridge</Network>
   <MyIP></MyIP>
   <Shell>bash</Shell>
