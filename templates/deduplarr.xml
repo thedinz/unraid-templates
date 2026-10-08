@@ -2,7 +2,7 @@
 <Container version="2">
   <Name>Deduplarr</Name>
   <Repository>ghcr.io/thedinz/deduplarr:latest</Repository>
-  <Registry>https://github.com/thedinz/Deduplarr/pkgs/container/deduplarr</Registry>
+  <Registry>https://github.com/users/thedinz/packages/container/package/deduplarr</Registry>
   <Network>bridge</Network>
   <MyIP></MyIP>
   <Shell>sh</Shell>
