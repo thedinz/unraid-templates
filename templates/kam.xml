@@ -9,7 +9,7 @@
 
   <Support>https://forums.unraid.net/topic/193880-kometa-asset-manager/</Support>
   <Project>https://github.com/thedinz/kam</Project>
-  <Overview>KAM (Kometa Asset Manager) manages the artwork in your Kometa asset folders. It connects to Plex, shows every movie, show and collection next to the artwork Kometa will use, and lets you upload, import from Plex, send to Plex, and clean up orphaned or duplicate asset folders. Files are saved with the names and layout Kometa expects. Kometa must be set up to create asset folders first (assets_for_all and create_asset_folders).</Overview>
+  <Overview>KAM (Kometa Asset Manager) manages the artwork in your Kometa asset folders. It connects to Plex, shows every movie, show and collection next to the artwork Kometa will use, and lets you upload, import from Plex, send to Plex, and clean up orphaned or duplicate asset folders. Files are saved with the names and layout Kometa expects. Kometa must be set up to create asset folders first (assets_for_all and create_asset_folders). On first start, KAM asks you to create a login: open the container's log (KAM icon, Logs) for the one-time setup code.</Overview>
   <Category>MediaApp:Other</Category>
   <WebUI>http://[IP]:[PORT:8000]/</WebUI>
   <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/logo.png</Icon>
@@ -36,7 +36,7 @@
           Type="Variable" Display="advanced" Required="false" Mask="false">INFO</Config>
 
   <Config Name="Auth Mode" Target="KAM_AUTH_MODE" Default=""
-          Description="Optional. Leave blank to use the Settings page, or set builtin or reverse_proxy."
+          Description="Optional. Leave blank to use the Settings page, or set builtin, reverse_proxy, or none. none turns the login off completely; only use it if KAM can't be reached from anywhere you don't trust."
           Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
 
   <Config Name="Auth Username" Target="KAM_AUTH_USERNAME" Default=""
@@ -44,7 +44,7 @@
           Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
 
   <Config Name="Auth Password" Target="KAM_AUTH_PASSWORD" Default=""
-          Description="Optional. Setting a password turns on the built-in login. Leave blank to use the Settings page."
+          Description="Optional. Setting a password skips the first-run login setup. Leave blank to create the login in KAM instead."
           Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
 
   <Config Name="Secure Auth Cookie" Target="KAM_AUTH_COOKIE_SECURE" Default="auto"
