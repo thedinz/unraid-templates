@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>NaviClean</Name>
-  <Repository>ghcr.io/thedinz/naviclean:latest</Repository>
-  <Registry>https://github.com/thedinz/NaviClean/pkgs/container/naviclean</Registry>
+  <Repository>ghcr.io/network-28/naviclean:latest</Repository>
+  <Registry>https://github.com/Network-28/NaviClean/pkgs/container/naviclean</Registry>
   <Network>bridge</Network>
   <MyIP></MyIP>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
 
-  <Support>https://github.com/thedinz/NaviClean/issues</Support>
-  <Project>https://github.com/thedinz/NaviClean</Project>
+  <Support>https://github.com/Network-28/NaviClean/issues</Support>
+  <Project>https://github.com/Network-28/NaviClean</Project>
   <Overview>NaviClean scans and cleans mounted Navidrome music libraries with guided organization previews, duplicate review, unindexed and non-music cleanup, Spotify-backed discovery, and audio conversion.</Overview>
   <Description>NaviClean provides a Docker-first web UI for maintaining Navidrome libraries. It stores settings under /data, reads and writes the mounted /music library, defaults to admin/admin authentication, can disable built-in auth for reverse-proxy systems, connects to Navidrome through the Subsonic-compatible API for scans, metadata, and artwork, previews planned organization moves before applying them, stages duplicate and cleanup removals in a recycle bin, can discover missing albums from Spotify metadata with authorized provider downloads, and can convert selected audio files with ffmpeg.</Description>
   <Category>MediaApp:Music</Category>
   <WebUI>http://[IP]:[PORT:8080]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/naviclean.png</Icon>
-  <TemplateURL>https://raw.githubusercontent.com/thedinz/unraid-templates/main/templates/naviclean.xml</TemplateURL>
-  <ReadMe>https://raw.githubusercontent.com/thedinz/NaviClean/main/README.md</ReadMe>
+  <Icon>https://raw.githubusercontent.com/Network-28/unraid-templates/main/appdata/naviclean.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/Network-28/unraid-templates/main/templates/naviclean.xml</TemplateURL>
+  <ReadMe>https://raw.githubusercontent.com/Network-28/NaviClean/main/README.md</ReadMe>
   <ExtraParams>--restart unless-stopped</ExtraParams>
 
   <Config Name="Web Port" Target="8080" Default="8080" Mode="tcp"
