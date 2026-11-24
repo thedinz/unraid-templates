@@ -14,8 +14,8 @@
   <Description>Deduplarr connects to Plex through the Plex API, scans selected movie, show, and video libraries for duplicate media versions, displays file paths and stream details, scores each version, and supports manual or automatic keeper selection. Plex URL and token are configured in the app Settings page and stored under /config. The default login is admin/admin; change it after first sign-in. Delete actions ask Plex to delete the selected media part, so Plex media deletion and filesystem write access must be enabled in Plex.</Description>
   <Category>MediaApp:Video</Category>
   <WebUI>http://[IP]:[PORT:7889]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/Network-28/unraid-templates/main/appdata/deduplarr.png</Icon>
-  <TemplateURL>https://raw.githubusercontent.com/Network-28/unraid-templates/main/templates/deduplarr.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/deduplarr.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/thedinz/unraid-templates/main/templates/deduplarr.xml</TemplateURL>
   <ReadMe>https://raw.githubusercontent.com/Network-28/Deduplarr/main/README.md</ReadMe>
   <ExtraParams>--restart unless-stopped</ExtraParams>
 

@@ -12,7 +12,7 @@
   <Overview>KAM (Kometa Asset Manager) manages the artwork in your Kometa asset folders. It connects to Plex, shows every movie, show and collection next to the artwork Kometa will use, and lets you upload, import from Plex, send to Plex, and clean up orphaned or duplicate asset folders. Files are saved with the names and layout Kometa expects. Kometa must be set up to create asset folders first (assets_for_all and create_asset_folders). On first start, KAM asks you to create a login: open the container's log (KAM icon, Logs) for the one-time setup code.</Overview>
   <Category>MediaApp:Other</Category>
   <WebUI>http://[IP]:[PORT:8000]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/Network-28/unraid-templates/main/appdata/logo.png</Icon>
+  <Icon>https://raw.githubusercontent.com/thedinz/unraid-templates/main/appdata/logo.png</Icon>
   <ExtraParams>--restart unless-stopped</ExtraParams>
 
   <Config Name="Web Port" Target="8000" Default="7171" Mode="tcp"
