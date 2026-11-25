@@ -12,7 +12,7 @@ template repository.
 - `templates/kam.xml` - Kometa Asset Manager
 - `templates/spotifybu.xml` - TrackKeep, a Spotify metadata backup and
   Navidrome-ready library helper with optional Navidrome or Plex playlist sync.
-  The template uses the stable `ghcr.io/thedinz/spotifybu:latest` image and
+  The template uses the stable `ghcr.io/network-28/spotifybu:latest` image and
   includes Unraid-friendly `PUID`, `PGID`, reverse-proxy URL, Navidrome API, and
   ownership-repair settings.
 - `templates/naviclean.xml` - NaviClean
